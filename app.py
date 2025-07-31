@@ -221,6 +221,9 @@ def extraire_infos_depuis_texte(texte_transcrit: str) -> dict:
     except Exception as e:
         # En cas d'échec de l'appel API, on retourne un dict vide
         print(f"❌ Erreur lors de l'appel à l'API OpenAI : {e}")
+        st.write("🔧 Debug GPT brut :")
+        st.json(response.model_dump())
+
         return {}
 
     # Extraction du texte JSON de la réponse (pour ignorer d'éventuels commentaires ou textes parasites)
